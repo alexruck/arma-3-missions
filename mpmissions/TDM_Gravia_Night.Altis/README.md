@@ -2,9 +2,54 @@
 
 ## Notable Functions and Code
 
+### Subtract Tickets
+
+This function is used by the trigger of the neutral target to subtract tickets from the opponent team.
+
+```sqf
+[east, -1] call BIS_fnc_respawnTickets; 
+```
+- https://community.bistudio.com/wiki/BIS_fnc_respawnTickets
+
+### Send Messages
+
+This function is used by the trigger of the neutral target to announce that tickets have been changed.
+
+```sqf
+[east, "HQ"] sideChat "Your team lost a ticket because the opponent defended successfully.";
+```
+
+- https://community.bistudio.com/wiki/sideChat
+
+### Display Mission Status
+
+This function is called in the `initPlayerLocal.sqf` to display the current tickets on the right side of the screen.
+
+```sqf
+[] call BIS_fnc_showMissionStatus;
+```
+
+- https://community.bistudio.com/wiki/BIS_fnc_showMissionStatus
+- https://community.bistudio.com/wiki/Event_Scripts#initPlayerLocal.sqf
+
+### First Respawn Instant
+
+This is added to the missions `description.ext`. This makes the first respawn of a player instant.
+
+```sqf
+respawnOnStart = 0;
+```
+
+- https://community.bistudio.com/wiki/Description.ext#respawnOnStart
+
+## Ideas
+
+- Randomized the items inside the crates
+- Randomize the spawn locations of the crates
+
 ## Addon Options
 
-This is an export of the server addon configuration:
+This is an export of the missions addon configuration:
 
 ```cpp
 // ACE Advanced Ballistics
@@ -19,11 +64,11 @@ force ace_advanced_ballistics_simulationInterval = 0.05;
 force ace_advanced_fatigue_enabled = true;
 force ace_advanced_fatigue_enableStaminaBar = true;
 ace_advanced_fatigue_fadeStaminaBar = true;
-force ace_advanced_fatigue_loadFactor = 1;
-force ace_advanced_fatigue_performanceFactor = 1.5;
-force ace_advanced_fatigue_recoveryFactor = 1;
-force ace_advanced_fatigue_swayFactor = 1;
-force ace_advanced_fatigue_terrainGradientFactor = 1;
+force ace_advanced_fatigue_loadFactor = 0.5;
+force ace_advanced_fatigue_performanceFactor = 2;
+force ace_advanced_fatigue_recoveryFactor = 5;
+force ace_advanced_fatigue_swayFactor = 0.5;
+force ace_advanced_fatigue_terrainGradientFactor = 0.5;
 
 // ACE Advanced Throwing
 ace_advanced_throwing_enabled = true;
@@ -294,13 +339,13 @@ ace_medical_gui_enableSelfActions = true;
 ace_medical_gui_interactionMenuShowTriage = 1;
 force ace_medical_gui_maxDistance = 3;
 ace_medical_gui_openAfterTreatment = true;
-force ace_medical_ivFlowRate = 1.5;
+force ace_medical_ivFlowRate = 2.5;
 force ace_medical_limping = 0;
 force ace_medical_painCoefficient = 1;
 force ace_medical_painUnconsciousChance = 0.1;
 force ace_medical_playerDamageThreshold = 1;
-force force ace_medical_spontaneousWakeUpChance = 0.1;
-force ace_medical_spontaneousWakeUpEpinephrineBoost = 2.5;
+force ace_medical_spontaneousWakeUpChance = 0.1;
+force ace_medical_spontaneousWakeUpEpinephrineBoost = 3;
 force ace_medical_statemachine_AIUnconsciousness = true;
 force ace_medical_statemachine_cardiacArrestBleedoutEnabled = true;
 force ace_medical_statemachine_cardiacArrestTime = 150;
@@ -334,12 +379,12 @@ force ace_medical_treatment_medicIV = 0;
 force ace_medical_treatment_medicPAK = 0;
 force ace_medical_treatment_medicSurgicalKit = 0;
 force ace_medical_treatment_timeCoefficientPAK = 1;
-force ace_medical_treatment_treatmentTimeAutoinjector = 5;
-force ace_medical_treatment_treatmentTimeBodyBag = 10;
+force ace_medical_treatment_treatmentTimeAutoinjector = 2.005;
+force ace_medical_treatment_treatmentTimeBodyBag = 4.01;
 force ace_medical_treatment_treatmentTimeCPR = 10;
-force ace_medical_treatment_treatmentTimeIV = 12;
-force ace_medical_treatment_treatmentTimeSplint = 7;
-force ace_medical_treatment_treatmentTimeTourniquet = 7;
+force ace_medical_treatment_treatmentTimeIV = 6.01;
+force ace_medical_treatment_treatmentTimeSplint = 4.005;
+force ace_medical_treatment_treatmentTimeTourniquet = 4.005;
 force ace_medical_treatment_woundReopenChance = 0.5;
 force ace_medical_treatment_woundStitchTime = 5;
 
