@@ -1,5 +1,7 @@
 # TDM Gravia Night
 
+This is a TDM mission with a small playing field. It has a limited arsenal and is designed for 8 vs 8 matches. The default time is night. The admin of the server can use Zeus.
+
 ## Notable Functions and Code
 
 ### Subtract Tickets
